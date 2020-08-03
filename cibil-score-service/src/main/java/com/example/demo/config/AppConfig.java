@@ -2,10 +2,12 @@ package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 import com.example.demo.entity.Address;
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.LoanApplication;
+import com.example.demo.entity.Recommendation;
 
 @Configuration
 public class AppConfig {
@@ -44,5 +46,17 @@ public class AppConfig {
 		 app.setId(999);
 		 
 		 return app;
+	}
+	
+	@Bean
+	@Lazy(value = true)
+	public Recommendation suggestion() {
+		
+		Recommendation bean =new Recommendation();
+		
+		bean.setId(2020);
+		bean.setSuggestions("personal Loan,Housing Loan");
+		
+		return bean;
 	}
 }

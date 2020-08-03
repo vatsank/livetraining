@@ -6,12 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import com.example.demo.entity.CibilScore;
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.LoanApplication;
+import com.example.demo.entity.Recommendation;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -40,13 +42,18 @@ public class CibilScoreServiceApplication {
 //        		 
 //	   log.info(customer.toString());
 	   
-	   LoanApplication app = ctx.getBean(LoanApplication.class);
-	   log.info(app.toString());
+//	   LoanApplication app = ctx.getBean(LoanApplication.class);
+//	   log.info(app.toString());
+         
+         Recommendation obj = ctx.getBean(Recommendation.class);
+         
+         log.info(obj.toString());
 	}
 
 
 	@Bean
 	@Primary
+	@Lazy(value = true)
 	public CibilScore ramScore() {
 		
 		// Setter DI
