@@ -1,9 +1,11 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 
 import com.example.demo.entity.CibilScore;
 
@@ -47,6 +49,7 @@ public class CibilScoreServiceApplication {
 	}
 	
 	@Bean
+	@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	public CibilScore shyamScore() {
 		
 		// Constructor DI
