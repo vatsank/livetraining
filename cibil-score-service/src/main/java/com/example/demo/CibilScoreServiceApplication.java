@@ -16,12 +16,18 @@ public class CibilScoreServiceApplication {
 	public static void main(String[] args) {
 	ConfigurableApplicationContext ctx=	SpringApplication.run(CibilScoreServiceApplication.class, args);
 	
+	
+	// Beans are Initialized Eagerly By Default
 	   // CibilScore score =(CibilScore) ctx.getBean("cibilScore");
 
 	//    CibilScore score = ctx.getBean(CibilScore.class);
 
          CibilScore score = ctx.getBean("shyamScore",CibilScore.class);
 
+         System.out.println("is Singleton :=> "+ctx.isSingleton("shyamScore"));
+         
+         System.out.println("is Prototype :=> "+ctx.isPrototype("shyamScore"));
+         
 	    log.info(score.toString());
 	    
 	}

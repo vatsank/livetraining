@@ -7,11 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CibilScore {
 
@@ -19,5 +19,19 @@ public class CibilScore {
 	 String panNumber;
 	 String firstName;
 	 double score;
+	public CibilScore(int id, String panNumber, String firstName, double score) {
+		super();
+		log.info("==== ALL Arg Constructor Called ====");
+
+		this.id = id;
+		this.panNumber = panNumber;
+		this.firstName = firstName;
+		this.score = score;
+	}
+	public CibilScore() {
+		super();
+
+		log.info("==== No Arg Constructor Called ====");
+	}
 
 }
