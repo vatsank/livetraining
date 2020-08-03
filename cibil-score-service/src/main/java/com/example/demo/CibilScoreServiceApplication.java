@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.example.demo.entity.CibilScore;
 import com.example.demo.entity.Customer;
+import com.example.demo.entity.LoanApplication;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,9 +35,12 @@ public class CibilScoreServiceApplication {
 //         
 //	    log.info(score.toString());
 //	
-         Customer customer = ctx.getBean(Customer.class);
-        		 
-	   log.info(customer.toString());
+//         Customer customer = ctx.getBean(Customer.class);
+//        		 
+//	   log.info(customer.toString());
+	   
+	   LoanApplication app = ctx.getBean(LoanApplication.class);
+	   log.info(app.toString());
 	}
 
 

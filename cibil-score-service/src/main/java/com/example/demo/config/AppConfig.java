@@ -25,6 +25,19 @@ public class AppConfig {
 	}
 	
 	@Bean
+	public Address address2() {
+		
+		return new Address("Indira Street","Rajiv Nagar","Chennai",402022);
+	}
+	
+	@Bean
+	public Customer ramesh() {
+		
+		// Passing Reference of another Bean
+		
+		return new Customer(103,"Vishal","Athire",address2());
+	}
+	@Bean
 	public LoanApplication loanApp() {
 		
 		LoanApplication app =  new LoanApplication();
