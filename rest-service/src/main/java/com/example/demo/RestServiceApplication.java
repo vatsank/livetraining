@@ -29,7 +29,7 @@ public class RestServiceApplication {
 				
 				repo.save(new CibilScore(101, "aa11", "Ramesh", 620));
 				
-				repo.save(new CibilScore(101, "bb22", "Suresh", 670));
+				repo.save(new CibilScore(102, "bb22", "Suresh", 670));
 				
 			}
 		};
