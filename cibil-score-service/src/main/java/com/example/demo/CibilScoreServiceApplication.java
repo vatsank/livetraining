@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import com.example.demo.entity.CibilScore;
@@ -45,6 +46,7 @@ public class CibilScoreServiceApplication {
 
 
 	@Bean
+	@Primary
 	public CibilScore ramScore() {
 		
 		// Setter DI

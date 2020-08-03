@@ -22,4 +22,7 @@ public class LoanApplication {
 	 @Autowired()
 	 @Qualifier("ramesh")
 	 Customer ramesh;
+	 
+	 @Autowired
+	 CibilScore score;
 }
