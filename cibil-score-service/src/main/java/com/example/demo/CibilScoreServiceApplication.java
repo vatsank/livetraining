@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Scope;
 
 import com.example.demo.entity.CibilScore;
+import com.example.demo.entity.Customer;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,12 +28,15 @@ public class CibilScoreServiceApplication {
 
          CibilScore score = ctx.getBean("shyamScore",CibilScore.class);
 
-         System.out.println("is Singleton :=> "+ctx.isSingleton("shyamScore"));
-         
-         System.out.println("is Prototype :=> "+ctx.isPrototype("shyamScore"));
-         
-	    log.info(score.toString());
-	    
+//         System.out.println("is Singleton :=> "+ctx.isSingleton("shyamScore"));
+//         
+//         System.out.println("is Prototype :=> "+ctx.isPrototype("shyamScore"));
+//         
+//	    log.info(score.toString());
+//	
+         Customer customer = ctx.getBean(Customer.class);
+        		 
+	   log.info(customer.toString());
 	}
 
 

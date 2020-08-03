@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.example.demo.entity.Address;
 import com.example.demo.entity.Customer;
+import com.example.demo.entity.LoanApplication;
 
 @Configuration
 public class AppConfig {
@@ -21,5 +22,14 @@ public class AppConfig {
 		// Passing Reference of another Bean
 		
 		return new Customer(102,"Vaibav","Sawant",address());
+	}
+	
+	@Bean
+	public LoanApplication loanApp() {
+		
+		LoanApplication app =  new LoanApplication();
+		 app.setId(999);
+		 
+		 return app;
 	}
 }
