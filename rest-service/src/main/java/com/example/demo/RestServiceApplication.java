@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.example.demo.entity.CibilScore;
+import com.example.demo.entity.TaxDetails;
 import com.example.demo.repos.CibilScoreRepository;
+import com.example.demo.repos.TaxDetailsRepository;
 
 @SpringBootApplication
 public class RestServiceApplication {
@@ -24,12 +26,20 @@ public class RestServiceApplication {
 			
 			@Autowired
 			CibilScoreRepository repo;
+			
+			@Autowired
+			TaxDetailsRepository taxRepo;
+			
 			@Override
 			public void run(String... args) throws Exception {
 				
 				repo.save(new CibilScore(101, "aa11", "Ramesh", 620));
 				
 				repo.save(new CibilScore(102, "bb22", "Suresh", 670));
+				
+				taxRepo.save(new TaxDetails("aa11","ramesh","employed","343434"));
+				
+				taxRepo.save(new TaxDetails("bb22","suresh","employed","743934"));
 				
 			}
 		};
