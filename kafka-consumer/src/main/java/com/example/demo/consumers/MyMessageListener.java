@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.consumers;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyMessageListener {
 
-    CountDownLatch latch = new CountDownLatch(3);
+    public CountDownLatch latch = new CountDownLatch(3);
 
 
     @KafkaListener(topics = "greet", groupId = "msgs", containerFactory = "msgKafkaListenerContainerFactory")

@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
+
+import com.example.demo.domains.FeedBack;
 
 import java.util.*;
 @Configuration
@@ -21,16 +24,43 @@ public class AppConfig {
         return new DefaultKafkaConsumerFactory<>(props);
     }
 
-    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory(String groupId) {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConsumerFactory<String, FeedBack> feedBackConsumerFactory() {
+        Map<String, Object> props = new HashMap<>();
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "feedback-group");
+        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(),
+        		          new JsonDeserializer<>(FeedBack.class));
+    }
+
+    // ===========================================
+    public ConcurrentKafkaListenerContainerFactory<String, String>
+               kafkaListenerContainerFactory(String groupId) {
+        ConcurrentKafkaListenerContainerFactory<String, String> factory = 
+        		 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory(groupId));
         return factory;
     }
 
+
+    // =================================================
+    
+    
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String> msgKafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, String> 
+               msgKafkaListenerContainerFactory() {
         return kafkaListenerContainerFactory("msgs");
     }
 
+   
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, FeedBack> 
+               feedBackKafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, FeedBack> factory = 
+        		 new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(feedBackConsumerFactory());
+        return factory;
+    }
     
+    
+   
 }
