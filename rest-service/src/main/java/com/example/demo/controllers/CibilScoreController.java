@@ -5,9 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,9 +37,30 @@ private CibilScoreService service;
 	}
     
     @PostMapping(path = "/api/v1/scores")
-	public CibilScore add(@RequestBody CibilScore entity,HttpServletResponse response){
+   	public CibilScore add(@RequestBody CibilScore entity,HttpServletResponse response){
 		
     	response.setStatus(201);
 		return this.service.save(entity);
 	}
+    
+    @PutMapping(path = "/api/v1/scores")
+   	public CibilScore update(@RequestBody CibilScore entity){
+		
+		return this.service.update(entity);
+	}
+    
+    @DeleteMapping(path = "/api/v1/scores")
+   	public CibilScore remove(@RequestBody CibilScore entity,HttpServletResponse resp){
+		
+		CibilScore obj =this.service.remove(entity);
+		
+		 if(obj==null) {
+			 resp.setStatus(200);
+		 } else {
+			 resp.setStatus(204);
+		 }
+		 
+		 return obj;
+	}
+    
 }

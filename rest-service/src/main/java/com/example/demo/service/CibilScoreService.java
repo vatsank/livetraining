@@ -29,4 +29,26 @@ public class CibilScoreService {
 		
 		return this.repo.findById(id).get();
 	}
+   
+   public CibilScore update(CibilScore entity) {
+		
+		return this.repo.save(entity);
+	}
+   
+   public CibilScore remove(CibilScore entity) {
+		
+	   CibilScore resp = null;
+	    
+	    if(repo.existsById(entity.getId())) {
+	       
+	       repo.delete(entity);
+	       
+	       resp= entity;
+	       } 
+	       
+	       return resp;
+
+	   
+		
+	}
 }
