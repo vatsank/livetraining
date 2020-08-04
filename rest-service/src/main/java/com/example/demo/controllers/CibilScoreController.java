@@ -63,4 +63,16 @@ private CibilScoreService service;
 		 return obj;
 	}
     
+    @DeleteMapping(path = "/api/v1/scores/del/{id}")
+   	public void remove(@PathVariable("id") int id,HttpServletResponse resp){
+		
+		 this.service.removeById(id);
+	}
+    
+    @GetMapping(path = "/api/v1/search/{pan}")
+   	public CibilScore searchByPan(@PathVariable("pan") String pan){
+		
+		 return this.service.getByPanNumber(pan);
+	}
+    
 }

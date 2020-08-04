@@ -51,4 +51,15 @@ public class CibilScoreService {
 	   
 		
 	}
+   
+   public void removeById(int id) {
+	   
+	   this.repo.deleteById(id);
+	   
+   }
+   
+   public CibilScore getByPanNumber(String panNumber) {
+	   
+	   return this.repo.findByPanNumber(panNumber);
+   }
 }
