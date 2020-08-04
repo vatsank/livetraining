@@ -55,9 +55,9 @@ private CibilScoreService service;
 		CibilScore obj =this.service.remove(entity);
 		
 		 if(obj==null) {
-			 resp.setStatus(200);
-		 } else {
 			 resp.setStatus(204);
+		 } else {
+			 resp.setStatus(200);
 		 }
 		 
 		 return obj;
