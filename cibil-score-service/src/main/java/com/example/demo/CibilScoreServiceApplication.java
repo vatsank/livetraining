@@ -5,14 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import com.example.demo.entity.CibilScore;
-import com.example.demo.entity.Customer;
-import com.example.demo.entity.LoanApplication;
 import com.example.demo.entity.Recommendation;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +27,7 @@ public class CibilScoreServiceApplication {
 
 	//    CibilScore score = ctx.getBean(CibilScore.class);
 
-         CibilScore score = ctx.getBean("shyamScore",CibilScore.class);
+       //  CibilScore score = ctx.getBean("shyamScore",CibilScore.class);
 
 //         System.out.println("is Singleton :=> "+ctx.isSingleton("shyamScore"));
 //         
