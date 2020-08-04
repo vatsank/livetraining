@@ -15,4 +15,9 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
         
-    
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"    
