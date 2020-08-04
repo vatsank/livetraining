@@ -29,6 +29,7 @@ private CibilScoreService service;
     @GetMapping(path = "/api/v1/scores")
 	public List<CibilScore> findAll(){
 		
+    	
 		return this.service.findAll();
 	}
     
