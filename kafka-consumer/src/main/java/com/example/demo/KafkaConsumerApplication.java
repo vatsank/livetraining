@@ -16,18 +16,7 @@ public class KafkaConsumerApplication {
 	ConfigurableApplicationContext context=	SpringApplication.run(KafkaConsumerApplication.class, args);
 		
 		
-//	MyMessageListener listener = context.getBean(MyMessageListener.class);
-//	
-//    try {
-//		listener.latch.await(10, TimeUnit.SECONDS);
-//	} catch (InterruptedException e) {
-//		e.printStackTrace();
-//	}
-//
-//
-//	}
-
-FeedBackListener listener = context.getBean(FeedBackListener.class);
+	MyMessageListener listener = context.getBean(MyMessageListener.class);
 	
     try {
 		listener.latch.await(10, TimeUnit.SECONDS);
@@ -38,4 +27,15 @@ FeedBackListener listener = context.getBean(FeedBackListener.class);
 
 	}
 
-}
+//FeedBackListener listener = context.getBean(FeedBackListener.class);
+//	
+//    try {
+//		listener.latch.await(10, TimeUnit.SECONDS);
+//	} catch (InterruptedException e) {
+//		e.printStackTrace();
+//	}
+//
+
+	}
+
+

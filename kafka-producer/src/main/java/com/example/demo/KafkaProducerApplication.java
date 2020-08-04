@@ -16,14 +16,14 @@ public class KafkaProducerApplication {
 		ConfigurableApplicationContext context =SpringApplication.run(KafkaProducerApplication.class, args);
 		
         
-//        MessageProducer producer = context.getBean(MessageProducer.class);
-//        producer.sendMessage(args[0]);
+        MessageProducer producer = context.getBean(MessageProducer.class);
+        producer.sendMessage(args[0]);
 
 
-		FeedBackProducer producer = context.getBean(FeedBackProducer.class);
-		
-		FeedBack bean = context.getBean(FeedBack.class);
-		 producer.sendMessage(bean);
+//		FeedBackProducer producer = context.getBean(FeedBackProducer.class);
+//		
+//		FeedBack bean = context.getBean(FeedBack.class);
+//		 producer.sendMessage(bean);
 		
 	}
 
