@@ -6,6 +6,7 @@ import javax.persistence.Table;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.stereotype.Component;
+import org.yaml.snakeyaml.representer.Representer;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "cibilscore_august")
-public class CibilScore {
+public class CibilScore  {
 
 	 @Id
 	 int  id;

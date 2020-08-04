@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Data
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CibilScore {
+public class CibilScore  {
 
 	 int  id;
 	 String panNumber;
