@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.hibernate.annotations.OptimisticLocking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +12,11 @@ import com.example.demo.entity.TaxDetails;
 import com.example.demo.repos.CibilScoreRepository;
 import com.example.demo.repos.TaxDetailsRepository;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Loan Processing API"))
 public class RestServiceApplication {
 
 	public static void main(String[] args) {
