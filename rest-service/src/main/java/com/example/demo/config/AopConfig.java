@@ -22,6 +22,7 @@ public class AopConfig {
 		
 		log.info( jp.getSignature().getName() + " Called  ########");
 		
+	
 		     Object obj = jp.proceed();
 		
 		log.info( jp.getSignature().getName() + " Completed  ########");
