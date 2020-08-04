@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.example.demo.producers.MessageProducer;
+
 @SpringBootApplication
 public class KafkaProducerApplication {
 
@@ -12,7 +14,7 @@ public class KafkaProducerApplication {
 		
         
         MessageProducer producer = context.getBean(MessageProducer.class);
-        producer.sendMessage("Hello, India!");
+        producer.sendMessage(args[0]);
 
 	}
 
