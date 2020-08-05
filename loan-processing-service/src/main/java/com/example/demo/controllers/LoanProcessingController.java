@@ -15,7 +15,7 @@ public class LoanProcessingController {
 	private RestTemplate template;
 	
 	
-	@GetMapping(path = "/api/v1/tax")
+	@GetMapping(path = "/api/v1/tax",produces = "application/json")
 	public String getTaxDetails() {
 
 		// String url = "http://localhost:2020/api/v1/taxdetails";

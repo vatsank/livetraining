@@ -19,7 +19,7 @@ public class TaxDetailsController {
 	private TaxDetailsRepository repo;
 	
 	
-	@GetMapping(path = "/api/v1/taxdetails")
+	@GetMapping(path = "/api/v1/taxdetails",produces ="application/json")
  	public List<TaxDetails> findAll(){
  		
  		
