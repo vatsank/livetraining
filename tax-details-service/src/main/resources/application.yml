@@ -1,0 +1,13 @@
+server:
+  port: 2020
+
+spring:
+  application:
+    name: tax-detail-service  
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka  
