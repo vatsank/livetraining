@@ -6,7 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.BestAvailableRule;
 import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RoundRobinRule;
+
 import org.springframework.context.annotation.*;
+
 @Configuration
 public class MyRibbonConfig {
 
@@ -15,9 +18,10 @@ public class MyRibbonConfig {
 	
 	
 	@Bean
-	public IRule rule() {
+	public IRule rule(IClientConfig config) {
 	
-		return new BestAvailableRule();
+		//return new BestAvailableRule();
 		
+		return new RoundRobinRule();
 	}
 }
