@@ -31,12 +31,24 @@ public class TaxDetailsController {
  	}
 
 	@GetMapping(path = "/api/v1/taxdetails/{pan}",produces ="application/json")
- 	public TaxDetails findById(@PathVariable("pan") String panNumber){
+ 	public TaxDetails findById(@PathVariable("pan") String panNumber) throws InterruptedException{
  		
- 		
-				TaxDetails details =this.repo.findById(panNumber).get();
 
-				  details.setAadharNumber(port);
+		TaxDetails details=null;
+		   if(panNumber.startsWith("aa")) {
+			   
+			    
+			    details.setAadharNumber(port);
+
+		   } else {
+			   
+			   Thread.sleep(6000);
+			   details =this.repo.findById(panNumber).get();
+			   
+		   }
+ 		
+				
+				  
 				  
 				  return details;
 	}
