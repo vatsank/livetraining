@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.netflix.ribbon.RibbonLoadBalancerClient;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +29,7 @@ public class ControllerWithLoadBalancer {
 	  ServiceInstance selectedInstance =   this.client.choose("TAX-DETAILS-SERVICE");
 		
 	    String baseURL = selectedInstance.getUri().toString();
-		
+		System.out.println("************** Load Balancer instance name"+client.getClass());
 	    String url = baseURL+"/api/v1/taxdetails/"+pan;
 
 	    
