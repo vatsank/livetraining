@@ -1,5 +1,24 @@
+spring:
+  profiles:
+  - pro1
+  
+eureka:
+  instance:
+    instance-id: pro1  
+
 server:
   port: 2020
 
   
+---
+spring:
+  profiles:
+  - pro2
+  
+eureka:
+  instance:
+    instance-id: pro2  
+
+server:
+  port: 2022
 
