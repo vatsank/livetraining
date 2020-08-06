@@ -1,2 +1,9 @@
 server:
   port: 7070
+  
+suggestion-service:
+  ribbon:
+    eureka:
+      enabled:false
+    listOfServers: localhost:6060,localhost:6065
+    ServerListRefreshInterval: 15000  
