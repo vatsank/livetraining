@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+
 @RestController
 @CrossOrigin(origins = "*")
 public class ControllerWithLoadBalancer {
@@ -24,6 +27,10 @@ public class ControllerWithLoadBalancer {
 	private LoadBalancerClient client;
 	
 	@GetMapping(path = "/api/v2/tax/{pan}",produces = "application/json")
+	
+	@HystrixCommand(fallbackMethod = "getDetailsByPanFallBack",commandProperties = @HystrixProperty(
+			  name = "execution.isolation.thread.timeoutInMilliseconds",value="2500"))
+	
 	public String getDetailsByPan(@PathVariable("pan") String pan) {
 		
 	  ServiceInstance selectedInstance =   this.client.choose("TAX-DETAILS-SERVICE");
@@ -32,7 +39,11 @@ public class ControllerWithLoadBalancer {
 		System.out.println("************** Load Balancer instance name"+client.getClass());
 	    String url = baseURL+"/api/v1/taxdetails/"+pan;
 
-	    
 		return template2.getForObject(url, String.class);
+	}
+	
+	public String getDetailsByPanFallBack(String pan) {
+		
+		return "{id:103,name:ramesh}";
 	}
 }
