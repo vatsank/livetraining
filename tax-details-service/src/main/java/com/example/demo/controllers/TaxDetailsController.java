@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.TaxDetails;
 import com.example.demo.repos.TaxDetailsRepository;
+import com.netflix.discovery.DiscoveryClient;
 
 @RestController
 @CrossOrigin(origins = "*")

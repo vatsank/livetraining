@@ -13,8 +13,6 @@ eureka:
     hostname: eureka-peer1
     appname: eureka-clustering
   client:
-    fetch-registry: true
-    register-with-eureka: true
     service-url:
       defaultZone: http://eureka-peer2:8770/eureka  
 
@@ -34,8 +32,6 @@ eureka:
     hostname: eureka-peer2
     appname: eureka-clustering
   client:
-    fetch-registry: true
-    register-with-eureka: true
     service-url:
       defaultZone: http://eureka-peer1:8765/eureka  
     

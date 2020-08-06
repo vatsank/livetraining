@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.discovery.DiscoveryClient;
+
 @RestController
 @CrossOrigin(origins = "*")
 public class LoanProcessingController {
@@ -15,6 +17,8 @@ public class LoanProcessingController {
 	private RestTemplate template;
 	
 	
+	
+
 	@GetMapping(path = "/api/v1/tax",produces = "application/json")
 	public String getTaxDetails() {
 
@@ -27,6 +31,7 @@ public class LoanProcessingController {
 		 */
 		String url = "http://TAX-DETAIL-SERVICE/api/v1/taxdetails";
 		
+
 		
 		return this.template.getForObject(url, String.class);
 		

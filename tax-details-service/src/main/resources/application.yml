@@ -22,4 +22,15 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://eureka-peer1:8765/eureka ,http://eureka-peer2:8770/eureka  
+      defaultZone: http://eureka-peer1:8765/eureka ,http://eureka-peer2:8770/eureka
+      
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"      
+        
