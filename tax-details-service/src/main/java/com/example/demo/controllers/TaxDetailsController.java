@@ -37,7 +37,8 @@ public class TaxDetailsController {
 		TaxDetails details=null;
 		   if(panNumber.startsWith("aa")) {
 			   
-			    
+			   details =this.repo.findById(panNumber).get();
+
 			    details.setAadharNumber(port);
 
 		   } else {
