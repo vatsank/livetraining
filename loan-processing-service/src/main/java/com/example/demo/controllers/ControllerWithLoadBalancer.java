@@ -25,11 +25,11 @@ public class ControllerWithLoadBalancer {
 	@GetMapping(path = "/api/v2/tax/{pan}",produces = "application/json")
 	public String getDetailsByPan(@PathVariable("pan") String pan) {
 		
-	  ServiceInstance selectedInstance =   this.client.choose("TAX-DETAIL-SERVICE");
+	  ServiceInstance selectedInstance =   this.client.choose("TAX-DETAILS-SERVICE");
 		
 	    String baseURL = selectedInstance.getUri().toString();
 		
-	    String url = baseURL+"/api/v1/taxdetails";
+	    String url = baseURL+"/api/v1/taxdetails/"+pan;
 
 	    
 		return template2.getForObject(url, String.class);
