@@ -1,2 +1,13 @@
+spring:
+  profiles:
+  - pro1
 server:
   port: 6060
+
+---
+spring:
+  profiles:
+  - pro2
+server:
+  port: 6065
+  
