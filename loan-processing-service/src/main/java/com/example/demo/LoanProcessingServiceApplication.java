@@ -22,4 +22,12 @@ public class LoanProcessingServiceApplication {
 		
 		return new RestTemplate();
 	}
+	
+	
+	@Bean
+	public RestTemplate template2() {
+		
+		return new RestTemplate();
+	}
+	
 }
