@@ -13,8 +13,11 @@ import com.example.demo.entity.TaxDetails;
 import com.example.demo.repos.TaxDetailsRepository;
 import com.netflix.discovery.DiscoveryClient;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @CrossOrigin(origins = "*")
+@Slf4j
 public class TaxDetailsController {
 
 	@Autowired
@@ -26,13 +29,15 @@ public class TaxDetailsController {
 	@GetMapping(path = "/api/v1/taxdetails",produces ="application/json")
  	public List<TaxDetails> findAll(){
  		
- 		
+		log.info("Tax Details Controller Find All  Called");
+
 				return this.repo.findAll();
  	}
 
 	@GetMapping(path = "/api/v1/taxdetails/{pan}",produces ="application/json")
  	public TaxDetails findById(@PathVariable("pan") String panNumber) throws InterruptedException{
  		
+		log.info("Tax Details Controller Find By Id  Called");
 
 		TaxDetails details=null;
 		   if(panNumber.startsWith("aa")) {

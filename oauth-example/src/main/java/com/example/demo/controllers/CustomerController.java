@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.domains.Customer;
 
 @RestController
-@RequestMapping("/api/customers")
 public class CustomerController {
 	
 	

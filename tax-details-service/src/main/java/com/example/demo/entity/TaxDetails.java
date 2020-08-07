@@ -9,13 +9,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "taxdetails_august")
-@NoArgsConstructor
 @AllArgsConstructor
+@Slf4j
 public class TaxDetails {
 
 	 @Id
@@ -23,4 +24,10 @@ public class TaxDetails {
 	 String entityName;
 	 String entityType;
 	 String aadharNumber;
+	public TaxDetails() {
+		super();
+		log.info("Tax Details Constructor Called");
+	}
+	 
+	 
 }
