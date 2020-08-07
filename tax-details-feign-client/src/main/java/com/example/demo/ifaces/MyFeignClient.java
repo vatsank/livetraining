@@ -10,4 +10,6 @@ public interface MyFeignClient {
 	@RequestMapping(method = RequestMethod.GET,produces = "application/json",
 			 path = "/api/v1/taxdetails")
 	public String findAll() ;
+	
+	
 }
