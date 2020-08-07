@@ -11,11 +11,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
+		auth.inMemoryAuthentication()
+		.withUser("india")
+		.password("{noop}india")
+		.roles("user");
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	
+		http.authorizeRequests()
+		.antMatchers("/reivew")
+		.permitAll().
+		antMatchers("/report")
+		.authenticated().and()
+		.formLogin().and().logout().logoutSuccessUrl("/report")
+		.invalidateHttpSession(true)
+		.deleteCookies("JSESSIONID").and().csrf().
+		disable();
+
 	}
 
 	
