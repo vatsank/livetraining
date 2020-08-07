@@ -20,16 +20,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	
+//		http.authorizeRequests()
+//		.antMatchers("/review")
+//		.permitAll().
+//		antMatchers("/report")
+//		.authenticated().and()
+//		.formLogin().and().logout().logoutSuccessUrl("/report")
+//		.invalidateHttpSession(true)
+//		.deleteCookies("JSESSIONID").and().csrf().
+//		disable();
+
+		
 		http.authorizeRequests()
-		.antMatchers("/reivew")
+		.antMatchers("/review")
 		.permitAll().
 		antMatchers("/report")
 		.authenticated().and()
-		.formLogin().and().logout().logoutSuccessUrl("/report")
-		.invalidateHttpSession(true)
-		.deleteCookies("JSESSIONID").and().csrf().
+		.httpBasic().and().csrf().
 		disable();
-
 	}
 
 	
