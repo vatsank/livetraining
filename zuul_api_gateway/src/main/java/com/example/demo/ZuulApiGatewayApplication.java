@@ -19,16 +19,19 @@ public class ZuulApiGatewayApplication {
 	}
 
 	
-//	@Bean
-//	public CorsFilter filter() {
-//		
-//	UrlBasedCorsConfigurationSource bean =	new UrlBasedCorsConfigurationSource();
-//	
-////	CorsConfiguration config = new CorsConfiguration();
-////	 // config.a
-////	    CorsFilter filter = new CorsFilter();
-////	
-//	    return filter;
-//	
-//	}
+	@Bean
+	public CorsFilter filter() {
+		
+	UrlBasedCorsConfigurationSource bean =	new UrlBasedCorsConfigurationSource();
+	
+	CorsConfiguration config = new CorsConfiguration();
+
+	  config.setAllowCredentials(true);
+	    config.addAllowedOrigin("*");
+	    config.addAllowedHeader("*");
+	    config.addAllowedMethod("*");
+	    bean.registerCorsConfiguration("/**", config);
+	    return new CorsFilter(bean);
+	
+	}
 }

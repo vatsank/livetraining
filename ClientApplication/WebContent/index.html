@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  
+  $(function(){
+	  
+	  var app={};
+	 app.options={
+	           type:'GET',
+	           url:'http://localhost:3232/tax-details/api/v1/taxdetails',
+	           contentType:"application/json;charset=utf-8"
+	       };
+
+	 app.updateDom=function(data){
+		        $("#placeHolder").text(data);
+		     };
+
+	   app.getData=function(){
+		         var promise = $.ajax(app.options);
+		         promise.done(function(data,status,xhr) {
+		                app.updateDom(data);
+		             });
+		         promise.fail(function(data,status,xhr){
+		               console.log(xhr);
+		         });
+		      };        
+  });
+  
+  </script>
+<body>
+
+<h2>Hello</h2>
+
+<div id="placeHolder">
+
+</div>
+</body>
+</html>
