@@ -11,3 +11,7 @@ spring:
 server:
   port: 6065
   
+  
+#server:
+#  port: 6060
+  

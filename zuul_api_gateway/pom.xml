@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>recomendation-service</artifactId>
+	<artifactId>zuul_api_gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>recomendation-service</name>
-	<description>Demo project for Spring Cloud Config Server</description>
+	<name>zuul_api_gateway</name>
+	<description>Demo project for Spring Zuul API Gateway</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -25,16 +25,18 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		
-
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -46,7 +48,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
 	</dependencies>
 
 	<dependencyManagement>
