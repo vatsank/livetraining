@@ -8,3 +8,14 @@ management:
       exposure:
         include:
         - "*"
+zuul:
+  host:
+    socket-timeout-millis: 2000000
+  ribbon:
+     eager-load:
+      enabled: true
+ 
+  routes:
+    recomend-service:
+       path: /recomend-service/**
+       url: http://localhost:7070/        
