@@ -24,7 +24,7 @@ public class MyPreFilter extends ZuulFilter {
 	public Object run() throws ZuulException {
 		
 	HttpServletRequest request=	  RequestContext.getCurrentContext().getRequest();
-		
+		  
 	log.info("========="+request.getRequestURI());
 	
 	return null;

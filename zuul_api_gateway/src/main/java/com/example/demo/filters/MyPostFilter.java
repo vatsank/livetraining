@@ -27,6 +27,8 @@ public class MyPostFilter extends ZuulFilter {
 				                            getResponse();
 
 		log.info("Post Filter"+ response.getContentType());
+		log.info("Post Filter"+ response.getStatus());
+		
 		return null;
 	}
 
@@ -38,7 +40,7 @@ public class MyPostFilter extends ZuulFilter {
 	@Override
 	public int filterOrder() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 }
