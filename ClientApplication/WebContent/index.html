@@ -16,7 +16,7 @@
 	  var app={};
 	 app.options={
 	           type:'GET',
-	           url:'http://localhost:3232/tax-details/api/v1/taxdetails',
+	           url:'http://localhost:3232/feign-client/fclient',
 	           contentType:"application/json;charset=utf-8"
 	       };
 
@@ -33,6 +33,8 @@
 		               console.log(xhr);
 		         });
 		      };        
+		 
+		 app.getData();
   });
   
   </script>
