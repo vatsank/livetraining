@@ -52,7 +52,7 @@ public class TaxiServiceApplication {
 //			System.out.println("Is Singleton :="+ctx.isSingleton("nick"));
 //			System.out.println("Is Prototype :="+ctx.isPrototype("nick"));
 //			
-			ctx.close();
+		//	ctx.close();
 	}
 
 	
