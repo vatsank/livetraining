@@ -1,15 +1,17 @@
 spring:
   profiles:
   - "dev"
+  application:
+    name: quak
 
 server:
   port: 2020
-
 ---
 
 spring:
   profiles:
   - "prod"
-  
+  application:
+    name: lazy
 server:
   port: 3030  

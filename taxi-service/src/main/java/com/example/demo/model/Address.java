@@ -1,25 +1,22 @@
 package com.example.demo.model;
 
-import org.springframework.stereotype.Component;
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
-//@Component(value = "cabdriver")
-public class Driver {
+public class Address {
 
-	int driverId;
-	String driverName;
-	long mobileNumber;
 	
-	Address address;
+	private String addressLine1;
+	private String addressLine2;
+	private String city;
+	private long pinCode;
+	
 }
