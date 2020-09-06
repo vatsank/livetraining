@@ -7,7 +7,7 @@
 <body>
 
 
-<form action="#" th:action="drivers" th:object="${command}" method="post"> >
+<form action="#" th:action="drivers" th:object="${command}" method="post"> 
 <div>
  <label>Driver Id</label>
 <input type="text" th:field="*{driverId}" />
@@ -17,6 +17,9 @@
  <label>Driver Name</label>
 <input type="text" th:field="*{driverName}" />
 
+<span th:if="${#fields.hasErrors('driverName')}" 
+                        th:errors="*{driverName}"></span>
+
 </div>
 
 <div>
@@ -25,6 +28,26 @@
 
 </div>
 
+<div>
+<label>Location</label>
+
+<select  th:field="${command.location}">
+       <option th:each="eachlocation : ${locationList}" 
+           th:value="${eachlocation}" th:text="${eachlocation}"></option>
+</select>
+</div>
+<div>
+ <label>Address Line1</label>
+<input type="text" th:field="*{address.addressLine1}" />
+<label>Address Line2</label>
+<input type="text" th:field="*{address.addressLine2}" />
+<label>City</label>
+<input type="text" th:field="*{address.city}" />
+
+<label>Pincode</label>
+<input type="text" th:field="*{address.pinCode}" />
+
+</div>
  <div>
  <input type="submit" value="Add">
  <input type="reset" value="clear">
