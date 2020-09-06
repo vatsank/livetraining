@@ -13,8 +13,6 @@ import com.example.demo.model.Driver;
 @Controller
 public class CabDriverController {
 
-	
-	
 	@Autowired
 	private Driver driver;
 	
@@ -32,10 +30,10 @@ public class CabDriverController {
 		return "addCabDriver";
 	}
 	
-	@PostMapping("/donors")
+	@PostMapping("/drivers")
 	public String onSubmit(@ModelAttribute("command") Driver driver) {
 		
 		
-		return "showResult";
+				return "showResult";
 	}
 }

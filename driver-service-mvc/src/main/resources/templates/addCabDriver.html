@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Driver</title>
+</head>
+<body>
+
+
+<form action="#" th:action="drivers" th:object="${command}" method="post"> >
+<div>
+ <label>Driver Id</label>
+<input type="text" th:field="*{driverId}" />
+
+</div>
+<div>
+ <label>Driver Name</label>
+<input type="text" th:field="*{driverName}" />
+
+</div>
+
+<div>
+ <label>Mobile Number</label>
+<input type="text" th:field="*{mobileNumber}" />
+
+</div>
+
+ <div>
+ <input type="submit" value="Add">
+ <input type="reset" value="clear">
+ 
+</div>
+</form>
+</body>
+</html>
