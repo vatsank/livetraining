@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
