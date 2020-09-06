@@ -6,11 +6,27 @@
 </head>
 <body>
 <h2>Following Details Submitted</h2>
-<p th:text="${command.driverId}"/>
-<p th:text="${command.driverName}"/>
-<p th:text="${command.mobileNumber}"/>
-<p th:text="${command.location}"/>
-<p th:text="${command.address}"/>
+<table>
+<tr>
+ <th>Driver Id</th>
+  <th>Driver Name</th>
+   <th>Mobile Number</th>
+    <th>Location</th>
+     <th>Address</th>
+</tr>
+<tr>
+<td th:text="${command.driverId}"></td>
+<td th:text="${command.driverName}"></td>
+<td th:text="${command.mobileNumber}"></td>
+<td th:text="${command.location}"></td>
+<td th:text="${command.address}"></td>
+</tr>
+</table>
+
+
+
+
+
 
 </body>
 </html>
