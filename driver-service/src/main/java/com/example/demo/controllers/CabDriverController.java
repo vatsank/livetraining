@@ -33,7 +33,8 @@ public class CabDriverController {
 		return this.service.getAllDriver();
 	}
 	
-	@GetMapping(path = "/api/v1/drivers/sorted/{key}",produces = "application/json")
+	@GetMapping(path = "/api/v1/drivers/sorted/{key}",
+			     produces = "application/json")
 	public List<Driver> sortedList(@PathVariable("key") String key){
 		
 		return this.service.sortedList(key);
@@ -64,7 +65,13 @@ public Driver deleteDriver(@RequestBody Driver entity,HttpServletResponse resp){
             
             if(driver==null) {
             	
-            	throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Requested Entity Not Found in table");
+            	try {
+                	throw new ResponseStatusException(HttpStatus.NO_CONTENT,
+                			  "Requested Entity Not Found in table");
+
+				} catch (Exception e) {
+					throw e;
+				}
             } 
             
             return driver;

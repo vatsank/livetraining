@@ -1,15 +1,15 @@
 package com.example.demo.model;
 
 
-import javax.persistence.Column;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
+
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
+
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
