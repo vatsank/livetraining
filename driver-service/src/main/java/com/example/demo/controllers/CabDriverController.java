@@ -3,9 +3,11 @@ package com.example.demo.controllers;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,7 @@ import com.example.demo.model.Driver;
 import com.example.demo.services.CabDriverService;
 
 @RestController
+@CrossOrigin(value = "*")
 public class CabDriverController {
 
 	
@@ -43,7 +46,7 @@ public class CabDriverController {
 	@PostMapping(path = "/api/v1/drivers",consumes="application/json",
 			                              produces = "application/json")
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public Driver addDriver(@RequestBody Driver entity){
+	public Driver addDriver(@Valid @RequestBody Driver entity){
 		
 		return this.service.addDriver(entity);
 	}
