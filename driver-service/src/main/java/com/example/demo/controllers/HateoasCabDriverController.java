@@ -12,7 +12,6 @@ import com.example.demo.model.Driver;
 import com.example.demo.repos.CabDriverHateoasRepository;
 
 @RestController
-
 public class HateoasCabDriverController {
 
 	@Autowired
