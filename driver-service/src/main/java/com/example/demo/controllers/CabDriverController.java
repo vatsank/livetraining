@@ -22,7 +22,7 @@ import com.example.demo.model.Driver;
 import com.example.demo.services.CabDriverService;
 
 @RestController
-@CrossOrigin(value = "*")
+
 public class CabDriverController {
 
 	
@@ -34,6 +34,12 @@ public class CabDriverController {
 	public List<Driver> getAllDriver(){
 		
 		return this.service.getAllDriver();
+	}
+	
+	@GetMapping(path = "/api/v1/drivers/{id}",produces = "application/json")
+	public Driver getDriver(@PathVariable("id") int id){
+		
+		return this.service.getDriver(id);
 	}
 	
 	@GetMapping(path = "/api/v1/drivers/sorted/{key}",

@@ -22,6 +22,11 @@ public class CabDriverService {
 		return this.repo.findAll();
 	}
 
+   public Driver getDriver(int id){
+		
+		return this.repo.findById(id).get();
+	}
+	
 	public Driver addDriver(Driver entity) {
 		
 		return this.repo.save(entity);

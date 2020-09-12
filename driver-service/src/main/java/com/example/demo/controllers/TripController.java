@@ -14,7 +14,7 @@ import com.example.demo.model.Trip;
 import com.example.demo.repos.TripRepository;
 
 @RestController
-@CrossOrigin(value = "*")
+
 public class TripController {
 
 	@Autowired
