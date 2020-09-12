@@ -1,26 +1,64 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+table{
+
+margin-left: auto;
+margin-right: auto;
+border: 2px solid blue;
+border-collapse: collapse;
+
+}
+
+tr,th,td{
+border: 2px solid blue
+
+}
+</style>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script><script>
+
+$(function(){
+	
+	 $.get("http://localhost:2020/api/v1/trips", function(data, status){
+		   var resp= data._embedded.trips;
+		 
+		   $.each(resp, function(key,value) {
+			  var row ="<tr> <td>"+value.id+"</td>"+
+			                 "<td>"+value.description+"</td>"+
+			                  "<td> <a href="+value._links.self.href +">view</a></td>"+
+			             "</tr>"
+			  $("#details").append(row);
+			 }); 
+	 });
+})
+
+
+
+</script>
+
 </head>
 <body>
-<div th:text="${list}"></div>
 
-<!-- 
-<table>
+<h1 style="text-align: center">Trip Details</h1>
+
+<table id="details">
 <tr>
  <th>Driver Id</th>
   <th>Description</th>
    <th>Link</th>
  </tr>
-<tr>
-<td th:text="${list[0].id}"></td>
-<td th:text="${list[0].description}"></td>
-<td><a href=""></a></td>
-</tr>
-<table>
- -->
+      
+
+</table>
+
+
 </body>
 </html>
+
