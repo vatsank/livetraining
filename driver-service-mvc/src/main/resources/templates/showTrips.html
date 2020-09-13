@@ -29,8 +29,11 @@ border: 2px solid blue
 $(function(){
 	
 	 $.get("http://localhost:2020/api/v1/trips", function(data, status){
+		 
+		
 		   var resp= data._embedded.trips;
 		 
+		
 		   $.each(resp, function(key,value) {
 			   var row =$('<tr/>');
 			   

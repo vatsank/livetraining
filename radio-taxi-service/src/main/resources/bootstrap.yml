@@ -1,0 +1,5 @@
+
+spring:
+  application:
+    name: radio-taxi-service
+      cloud:    config:      uri:      - http://localhost:1010

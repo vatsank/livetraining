@@ -1,0 +1,20 @@
+spring:
+  profiles:
+  - "pro1"
+server:
+  port: 5555
+  
+eureka:
+  instance:
+    instance-id: pro1  
+   
+---
+spring:
+  profiles:
+  - "pro2"
+eureka:
+  instance:
+    instance-id: pro2    
+server:
+  port: 5556
+    

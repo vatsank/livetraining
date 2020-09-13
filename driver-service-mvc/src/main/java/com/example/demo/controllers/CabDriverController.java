@@ -61,10 +61,10 @@ public class CabDriverController {
 	@GetMapping(path="/drivers",produces = "application/json" )
 	public String getAllDrivers(Model model) {
 		
-		String result  = this.template.getForObject("http://localhost:2020/api/v1/trips", 
-		           String.class);
-
-		model.addAttribute("list",result);
+//		String result  = this.template.getForObject("http://localhost:2020/api/v1/trips", 
+//		           String.class);
+//
+//		model.addAttribute("list",result);
 		 return "showTrips";
 		
 		
