@@ -22,7 +22,7 @@ import com.example.demo.model.Driver;
 import com.example.demo.services.CabDriverService;
 
 @RestController
-
+@CrossOrigin(origins = "*")
 public class CabDriverController {
 
 	

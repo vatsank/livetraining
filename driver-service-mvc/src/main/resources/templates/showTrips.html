@@ -22,7 +22,9 @@ border: 2px solid blue
 <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous"></script><script>
+  crossorigin="anonymous"></script>
+  
+  <script>
 
 $(function(){
 	
@@ -30,11 +32,16 @@ $(function(){
 		   var resp= data._embedded.trips;
 		 
 		   $.each(resp, function(key,value) {
-			  var row ="<tr> <td>"+value.id+"</td>"+
-			                 "<td>"+value.description+"</td>"+
-			                  "<td> <a href="+value._links.self.href +">view</a></td>"+
-			             "</tr>"
-			  $("#details").append(row);
+			   var row =$('<tr/>');
+			   
+			   var link = "<a href ="+value._links.self.href+">View</a>";
+			   
+			  var column ="<td>"+value.id+"</td>"+
+			              "<td>"+value.description+"</td>"+
+			              "<td>"+ link+"</td>";
+			              
+			  var markup = row.append(column);           
+			  $("#tripTable").append(markup);
 			 }); 
 	 });
 })
@@ -48,7 +55,7 @@ $(function(){
 
 <h1 style="text-align: center">Trip Details</h1>
 
-<table id="details">
+<table id="tripTable">
 <tr>
  <th>Driver Id</th>
   <th>Description</th>

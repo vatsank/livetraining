@@ -12,6 +12,7 @@ import com.example.demo.model.Driver;
 import com.example.demo.repos.CabDriverHateoasRepository;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class HateoasCabDriverController {
 
 	@Autowired
@@ -31,3 +32,12 @@ public class HateoasCabDriverController {
 		return this.service.findByLocation(location);
 	}
 }
+
+
+//$('#box').append(
+//		  $('<div/>')
+//		    .attr("id", "newDiv1")
+//		    .addClass("newDiv purple bloated")
+//		    .append("<span/>")
+//		      .text("hello world")
+//		);
