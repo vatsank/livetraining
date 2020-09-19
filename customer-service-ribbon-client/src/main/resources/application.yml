@@ -8,4 +8,3 @@ customer-service:
     listOfServers: localhost:4545,localhost:5555
     ServerListRefereshInterval: 15000     
 
-      
