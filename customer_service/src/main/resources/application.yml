@@ -1,0 +1,17 @@
+
+spring:
+  profiles:
+  - "dev"
+
+server:
+  port: 4545
+  
+---
+
+spring:
+  profiles:
+  - "qa"
+  
+server:
+  port: 5555
+    
