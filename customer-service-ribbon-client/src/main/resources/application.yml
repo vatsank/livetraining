@@ -1,0 +1,11 @@
+server:
+  port: 3535
+  
+customer-service:
+  ribbon:
+    eureka:
+      enabled:false
+    listOfServers: localhost:4545,localhost:5555
+    ServerListRefereshInterval: 15000     
+
+      
