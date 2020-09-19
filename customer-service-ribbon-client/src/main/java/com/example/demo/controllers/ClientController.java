@@ -17,10 +17,7 @@ public class ClientController {
 	private RestTemplate template;
 	
 	@GetMapping(path = "/client/{id}")
-	@HystrixCommand(fallbackMethod = "fetchCustomerFallBack",
-	commandProperties = 
-	@HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",
-	    value="2000"))
+	@HystrixCommand(fallbackMethod = "fetchCustomerFallBack")
 	
 	public String fetchCustomerDetails(@PathVariable("id") int id) {
 		
