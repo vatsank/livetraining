@@ -5,6 +5,18 @@ server:
 spring:
   application:
     name: api-gateway
+
+zuul:
+  host:
+    socket-timeout-millis: 2000000
+  ribbon:
+     eager-load:
+      enabled: true
+      
+  routes:
+    customer-service:
+       path: /customer-service/**
+       url: http://localhost:3535/       
     
 eureka:
   client:
