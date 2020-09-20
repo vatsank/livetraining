@@ -24,7 +24,8 @@ public class OauthSecurityConfiguration extends WebSecurityConfigurerAdapter {
      
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
+       
+    	auth.inMemoryAuthentication()
         .withUser("india").password("{noop}india").roles("ADMIN").and()
         .withUser("nepal").password("{noop}nepal").roles("USER");
     }

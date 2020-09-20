@@ -15,18 +15,16 @@ public class CustomerController {
 	@Autowired
 	private Customer customer;
 	
-	 @GetMapping("/customer/{userId}")
+	 @GetMapping("/api/customers/{userId}")
 	    public Customer getCustomerProfile(@PathVariable("userId") String userId) {
-	        return getCustomer(userId);
-	    }
-
-	    private Customer getCustomer(String userId) {
-	       
-	        customer.setEmail("admin@abc.com");
+	     
+		 customer.setEmail("admin@abc.com");
 	        customer.setFirstName("Ramesh");
 	        customer.setLastName("Kumar");
 	        customer.setAge(32);
 	        customer.setId(userId);
-	        return customer;
+		 return customer;
 	    }
+
+	 
 }
