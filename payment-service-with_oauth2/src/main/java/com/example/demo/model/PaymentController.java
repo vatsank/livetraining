@@ -11,7 +11,7 @@ public class PaymentController {
 	@Autowired
 	Payment payment;
 	
-	@GetMapping("/api/customer/{id}")
+	@GetMapping("/api/payments/{id}")
 	public Payment getPayment(@PathVariable("id") int id) {
 		
 		payment.setId(id);

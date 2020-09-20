@@ -14,10 +14,10 @@ public class PaymentResourceServer extends ResourceServerConfigurerAdapter {
 		
 		http.anonymous().disable()
 		   .requestMatchers()
-		      .antMatchers("/payments/**")
+		      .antMatchers("/api/payments/**")
 		             .and()
 		              .authorizeRequests()
-		               .antMatchers("/payments/**")
+		               .antMatchers("/api/payments/**")
 		               .access("hasRole('ADMIN')");
 		              		
 	}
