@@ -12,7 +12,7 @@ public class PaymentController {
 	
 	@GetMapping(path = "/customers")
 	@Secured("ROLE_ADMIN")
-	
+	//@RolesAllowed(value = "{ROLE_ADMIN}")
 	public String getCustomer() {
 		
 		return "Customer Details Will be updated";
