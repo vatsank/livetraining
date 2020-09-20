@@ -7,7 +7,6 @@ public class MyResourceNotFoundException extends Exception {
 	
 	public MyResourceNotFoundException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
 	}
 	public MyResourceNotFoundException(String message, Throwable cause) {
 		

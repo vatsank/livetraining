@@ -20,10 +20,10 @@ public class ApplicationExceptionHandler {
         DriverException DriverException = new DriverException(100, "From app handler Drivers are not found");
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(DriverException);
-    }
+   }
 
    
-    @ExceptionHandler(ResponseStatusException.class)
+    @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<DriverException> handleRunTimeException(ResponseStatusException e, HttpServletRequest request){
         Map<String, String> pathVariables = (Map<String, String>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
         DriverException DriverException = new DriverException(101, String.format("From  App handler Driver with id-%s is not found", pathVariables.get("id")));
