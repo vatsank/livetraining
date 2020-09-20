@@ -19,5 +19,10 @@ zuul:
     recomend-service:
        path: /recomend-service/**
        url: http://localhost:7070/client  
-       
-             
+    api:     
+      path: /api/**
+      service-id: resource
+      sensitiveHeaders:
+      strip-prefix: false
+      url: http://localhost:5050/
+    

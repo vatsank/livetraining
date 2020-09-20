@@ -9,6 +9,8 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.hystrix.HystrixCommandGroupKey;
+
 @SpringBootApplication
 @EnableHystrix
 @RibbonClient(name = "customer-service", configuration = MyRibbonConfiguration.class)
@@ -24,5 +26,18 @@ public class CustomerServiceRibbonClientApplication {
 	public RestTemplate template() {
 		
 		return new RestTemplate();
+	}
+	
+	@Bean
+	public HystrixCommandGroupKey key() {
+		
+		return new HystrixCommandGroupKey() {
+			
+			@Override
+			public String name() {
+				// TODO Auto-generated method stub
+				return "Demo";
+			}
+		};
 	}
 }

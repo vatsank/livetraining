@@ -17,11 +17,12 @@ public class ClientController {
 	private RestTemplate template;
 	
 	@GetMapping(path = "/client/{id}")
-	@HystrixCommand(fallbackMethod = "fetchCustomerFallBack")
+	@HystrixCommand(fallbackMethod = "fetchCustomerFallBack",
+	groupKey = "Demo")
 	
 	public String fetchCustomerDetails(@PathVariable("id") int id) {
 		
-		String URI = "http://customer-service/customers/"+id;
+		String URI = "http://customer-service/customer/"+id;
 		return this.template.getForObject(URI, String.class);
 	}
 	
@@ -29,5 +30,6 @@ public class ClientController {
 		
 			return "{id:0,name:Guest}";
 	}
+	
 	
 }
