@@ -33,14 +33,10 @@ public class CabDriverService {
 	public Driver getDriverByIdWithException(int id) throws MyResourceNotFoundException{
 		
 		     
-	Optional<Driver> response =	this.repo.findById(id);
+	Optional<Driver> optionalDriver  =	this.repo.findById(id);
 	
-	      if(response.get()==null){
-	    	  throw new MyResourceNotFoundException("Exception Element Not Found");
-	      } else {
-	    	  
-	    	  return (Driver) response.get();
-	      }
-		   
+    return  optionalDriver.orElseThrow(() -> new MyResourceNotFoundException("Username or password wrong"));
+
+	      
 	}
 }
