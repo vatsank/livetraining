@@ -17,6 +17,12 @@ zuul:
     customer-service:
        path: /customer-service/**
        url: http://localhost:3535/       
+    api:     
+      path: /api/**
+      service-id: payment-service
+      sensitiveHeaders:
+      strip-prefix: false
+      url: http://localhost:4040/
     
 eureka:
   client:
